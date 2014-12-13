@@ -1,7 +1,7 @@
 %table.table.table-hover
   - games.each do |g|
     %tr
-      %td.col-md-2= g.title.humanize
+      %td.col-md-2= link_to g.title.humanize, dashboard_game_path(g)
       %td.col-md-5= g.description.truncate(50)
       %td.col-md-1= g.disk_condition.humanize
       %td.col-md-1= g.box_condition.humanize
