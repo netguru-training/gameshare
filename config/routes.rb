@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
-   root to: "dashboard#show"
+  root to: "search#index"
+  resources :search
 
   namespace :dashboard do
     resources :games
