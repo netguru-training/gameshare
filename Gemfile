@@ -25,6 +25,7 @@ gem 'bootstrap-sass'
 
 gem 'rails_12factor', group: :production
 gem 'rollbar'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'guard-rails'
