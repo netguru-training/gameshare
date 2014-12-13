@@ -1,0 +1,11 @@
+common: &common
+  dev_key: 'AIzaSyB-NEthYCQ0WbiM9bAyfzQkzEuO34RuVgI'
+  # username:  ENV['YT_USERNAME']
+  # password:  ENV['YT_PASSWORD']
+
+test:
+  <<: *common
+development:
+  <<: *common
+production:
+  <<: *common

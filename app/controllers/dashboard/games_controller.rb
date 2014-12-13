@@ -2,6 +2,9 @@ module Dashboard
   class GamesController < ApplicationController
     expose(:game)
     expose(:games)
+    expose(:youtube_session) { YouTubeIt::Client.new(dev_key: YouTubeITConfig.dev_key)}
+    expose(:yt_search_result) { youtube_session.videos_by(query: "#{game.title} game trailer", page: 1, per_page: 1)}
+    expose(:video) { yt_search_result.videos.first }
 
     def index
     end
@@ -10,6 +13,9 @@ module Dashboard
     end
 
     def new
+    end
+
+    def show
     end
 
     def create
