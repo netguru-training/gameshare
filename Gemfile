@@ -41,3 +41,17 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-bundler'
 end
+
+group :test do
+  gem 'timecop'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 2.5.0', require: false
+end
+
+group :development, :test do
+  gem 'faker'
+  gem 'simplecov', '~> 0.7.1', require: false
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.1.0'
+end
