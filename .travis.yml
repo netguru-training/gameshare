@@ -13,3 +13,4 @@ deploy:
   app: still-stream-7949
   on:
     repo: netguru-training/gameshare
+  run: "rake db:migrate"
