@@ -1,6 +1,11 @@
 language: ruby
 rvm:
 - 2.1.5
+before_script:
+- export RAILS_ENV=test
+- cp config/database.yml.travis config/database.yml
+script:
+- bundle exec rspec spec
 deploy:
   provider: heroku
   api_key:
