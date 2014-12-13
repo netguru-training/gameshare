@@ -36,6 +36,7 @@ gem 'searchlight'
 gem 'bootstrap-sass'
 
 gem 'rails_12factor', group: :production
+gem 'rollbar'
 
 group :development do
   gem 'guard-rails'
