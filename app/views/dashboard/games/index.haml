@@ -1,12 +1,2 @@
-%table.table.table-hover
-  - games.each do |g|
-    %tr
-      %td.col-md-2= g.title.humanize
-      %td.col-md-5= g.description.truncate(50)
-      %td.col-md-1= g.disk_condition.humanize
-      %td.col-md-1= g.box_condition.humanize
-      %td.col-md-3
-        = link_to 'Show', dashboard_game_path(g), class: "btn btn-primary"
-        = link_to 'Edit', edit_dashboard_game_path(g), class: "btn btn-default"
-        = link_to 'Delete', dashboard_game_path(g), class: "btn btn-default", method: :delete
+= render 'game'
 = link_to 'New game', new_dashboard_game_path
