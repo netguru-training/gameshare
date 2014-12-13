@@ -6,6 +6,7 @@ class Game < ActiveRecord::Base
 
   has_many :possessions
   has_many :users, through: :possessions
+  has_and_belongs_to_many :categories
 
   def owners
     possessions.game_collection_items

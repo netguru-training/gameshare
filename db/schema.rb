@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213104944) do
+ActiveRecord::Schema.define(version: 20141213145827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories_games", id: false, force: true do |t|
+    t.integer "game_id",     null: false
+    t.integer "category_id", null: false
+  end
+
+  add_index "categories_games", ["category_id", "game_id"], name: "index_categories_games_on_category_id_and_game_id", using: :btree
+  add_index "categories_games", ["game_id", "category_id"], name: "index_categories_games_on_game_id_and_category_id", using: :btree
 
   create_table "games", force: true do |t|
     t.string   "title"

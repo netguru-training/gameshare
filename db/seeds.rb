@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Game.create!([{title: 'Aaa', description: 'zzz'}, {title: 'Abb', description: 'zzz'}, {title: 'Ccc', description: 'zzz'}])
+
+Category.create!([{name: 'FPS'}, {name: 'RPG'}, {name: 'Sport'}])
