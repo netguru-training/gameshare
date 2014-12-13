@@ -3,4 +3,15 @@ class Game < ActiveRecord::Base
   enum box_condition: { brand_new: 0, used: 1 }
 
   validates :title, :description, :disk_condition, :box_condition, presence: true
+
+  has_many :possessions
+  has_many :users, through: :possessions
+
+  def owners
+    possessions.game_collection_items
+  end
+
+  def wishers
+    possessions.wishlist_items
+  end
 end
