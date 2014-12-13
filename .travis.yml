@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+- 2.1.5
+deploy:
+  provider: heroku
+  api_key:
+    secure: K85Ic9nJkMWCo5llf+1yutX6BKxtMfkypG7m7yBjHCW6wT9uWJpyd4o4OsTpxqKkkOwG7SgyT+vbDZO7t+3VX/w88g0N1DQ0PtdWmzYjAGGcXpQFig873zDAramrQ8YRN3R/kjGyS7hxHf5aRRRtM2IWTAOW/YsNXm1jcXEFvU8=
+  app: still-stream-7949
+  on:
+    repo: netguru-training/gameshare
