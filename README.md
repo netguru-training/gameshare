@@ -1,4 +1,4 @@
 Badges
 ===
 
-[![Travis](http://img.shields.io/travis/joyent/node.svg)]()
+[![Build Status](https://travis-ci.org/netguru-training/gameshare.svg?branch=master)](https://travis-ci.org/netguru-training/gameshare)
