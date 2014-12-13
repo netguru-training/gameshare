@@ -1,0 +1,7 @@
+= simple_form_for [:dashboard, game] do |f|
+  .form-group
+    = f.input :title
+    = f.input :description
+    = f.input :disk_condition, collection: generate_collection(:disk_conditions)
+    = f.input :box_condition, collection: generate_collection(:box_conditions)
+    = f.button :submit

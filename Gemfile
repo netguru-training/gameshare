@@ -30,6 +30,10 @@ gem 'newrelic_rpm'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'pry-rails'
+
 group :development do
   gem 'guard-rails'
   gem 'guard-rspec'

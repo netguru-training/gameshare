@@ -1,0 +1,8 @@
+- games.each do |g|
+  .well
+    = g.title
+    = g.description
+    = g.disk_condition
+    = g.box_condition
+    = link_to 'Edit', edit_dashboard_game_path(g)
+= link_to 'New game', new_dashboard_game_path
