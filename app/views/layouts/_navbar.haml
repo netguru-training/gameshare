@@ -1,0 +1,14 @@
+%nav.navbar.navbar-default{:role => "navigation"}
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %a.navbar-brand{:href => "#"} Gameshare
+    %ul.nav.navbar-nav.nabar-left
+      - if current_user
+        %li= link_to 'Games', dashboard_games_path
+    %ul.nav.navbar-nav.navbar-right
+      - if current_user
+        %li= link_to('Logout', destroy_user_session_path, method: :delete)
+      - else
+        %li= link_to('Sign In', new_user_session_path)
+        %li= link_to('Sign Up', new_user_registration_path)
