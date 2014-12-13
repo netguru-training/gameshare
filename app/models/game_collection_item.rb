@@ -1,0 +1,2 @@
+class GameCollectionItem < Possession
+end

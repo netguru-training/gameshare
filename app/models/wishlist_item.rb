@@ -1,0 +1,2 @@
+class WishlistItem < Possession
+end
