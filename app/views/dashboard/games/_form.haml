@@ -4,4 +4,5 @@
     = f.input :description
     = f.input :disk_condition, collection: generate_collection(:disk_conditions)
     = f.input :box_condition, collection: generate_collection(:box_conditions)
+    = f.association :categories, as: :check_boxes, collection: categories
     = f.button :submit

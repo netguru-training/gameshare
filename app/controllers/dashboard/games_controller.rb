@@ -1,6 +1,7 @@
 module Dashboard
   class GamesController < ApplicationController
     expose(:game)
+    expose(:categories)
     expose(:games)
     expose(:youtube_session) { YouTubeIt::Client.new(dev_key: YouTubeITConfig.dev_key)}
     expose(:yt_search_result) { youtube_session.videos_by(query: "#{game.title} game trailer", page: 1, per_page: 1)}
@@ -42,7 +43,7 @@ module Dashboard
 
       private
       def game_params
-        params.require(:game).permit(:title, :description, :disk_condition, :box_conditiond)
+        params.require(:game).permit(:title, :description, :disk_condition, :box_conditiond,category_ids: [])
       end
   end
 end
