@@ -27,6 +27,9 @@ gem 'rails_12factor', group: :production
 gem 'rollbar'
 gem 'newrelic_rpm'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 group :development do
   gem 'guard-rails'
   gem 'guard-rspec'
