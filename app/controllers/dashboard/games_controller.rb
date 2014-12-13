@@ -13,7 +13,20 @@ module Dashboard
     end
 
     def create
-      self.game = game.create(game_params)
+      self.game = Game.new(game_params)
+      if game.save
+        redirect_to dashboard_games_path
+      else
+        render action: 'new'
+      end
+    end
+
+    def update
+      if self.game.update(game_params)
+        redirect_to :back, notice: 'Product was successfully updated.'
+      else
+        render action: 'edit'
+      end
     end
 
       private
