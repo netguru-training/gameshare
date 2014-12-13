@@ -15,7 +15,7 @@ module Dashboard
     def create
       self.game = Game.new(game_params)
       if game.save
-        redirect_to dashboard_games_path
+        redirect_to :back
       else
         render action: 'new'
       end
@@ -23,10 +23,15 @@ module Dashboard
 
     def update
       if self.game.update(game_params)
-        redirect_to :back, notice: 'Product was successfully updated.'
+        redirect_to dashboard_games_path, notice: 'Game was successfully updated.'
       else
         render action: 'edit'
       end
+    end
+
+    def destroy
+      game.destroy
+      redirect_to :back, notice: 'Game was successfully deleted.'
     end
 
       private
