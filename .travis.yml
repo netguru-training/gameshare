@@ -4,6 +4,7 @@ rvm:
 before_script:
 - export RAILS_ENV=test
 - cp config/database_example.yml config/database.yml
+- bundle exec rake db:test:prepare
 script:
 - bundle exec rspec spec
 deploy:
