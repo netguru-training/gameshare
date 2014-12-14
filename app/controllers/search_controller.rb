@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  expose(:games) { search_query.try(:[], :title).present? ? fetch_games : [] }
+  expose(:games) { fetch_games }
 
   def index
   end
@@ -14,5 +14,4 @@ class SearchController < ApplicationController
     search  = GameSearch.new(search_query || {})
     search.results
   end
-
 end

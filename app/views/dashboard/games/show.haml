@@ -3,3 +3,8 @@
     = game.title
   .col-lg-8
     = raw video.embed_html5
+    .panel.well
+      Categories:
+      - game.categories.each do |c|
+        = link_to c.name, search_path(search: { category_id: c })
+
