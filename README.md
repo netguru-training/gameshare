@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/netguru-training/gameshare.svg?branch=master)](https://travis-ci.org/netguru-training/gameshare)
 
 GamesShare is an application for gamers who want to trade their games with others.
-(https://still-stream-7949.herokuapp.com/)
+https://still-stream-7949.herokuapp.com/
 
 ## Setup
 
