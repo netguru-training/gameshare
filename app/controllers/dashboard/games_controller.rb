@@ -1,11 +1,11 @@
 module Dashboard
   class GamesController < ApplicationController
-    before_action :authorize
-
     expose(:game)
     expose(:categories)
     expose(:games)
     expose(:video) { Youtube.new(game.title).first_video }
+
+    after_action :verify_authorized, except: :index
 
     def index
     end
@@ -60,6 +60,12 @@ module Dashboard
       else
         redirect_to dashboard_game_path(game), flash: { error: 'Cannot add to game collection.' }
       end
+    end
+
+    protected
+
+    def authorize_user
+      authorize game
     end
 
     private
