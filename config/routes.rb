@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :games do
       post :add_to_collection
       post :add_to_wishlist
+
+      post :remove_from_collection
+      post :remove_from_wishlist
     end
 
     get :wishlist

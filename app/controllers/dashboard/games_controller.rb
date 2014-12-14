@@ -33,7 +33,7 @@ module Dashboard
         redirect_to dashboard_games_path, notice: 'Game was successfully updated.'
       else
         render action: 'edit'
-      end
+    end
     end
 
     def destroy
@@ -59,6 +59,24 @@ module Dashboard
         redirect_to dashboard_game_path(game), notice: 'Added to collection.'
       else
         redirect_to dashboard_game_path(game), flash: { error: 'Cannot add to game collection.' }
+      end
+    end
+
+    def remove_from_collection
+      possession = current_user.possessions.find_by(game: game)
+      if possession.destroy
+        redirect_to dashboard_game_path(possession.game), notice: 'Removed from game collection.'
+      else
+        redirect_to dashboard_game_path(game), flash: { error: 'Cannot remove from game collection.' }
+      end
+    end
+
+    def remove_from_wishlist
+      possession = current_user.possessions.find_by(game: game)
+      if possession.destroy
+        redirect_to dashboard_game_path(possession.game), notice: 'Removed from game wishlist.'
+      else
+        redirect_to dashboard_game_path(game), flash: { error: 'Cannot remove from game wishlist.' }
       end
     end
 
