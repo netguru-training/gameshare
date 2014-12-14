@@ -1,10 +1,26 @@
 .row
   .col-sm-4
-    = game.title
+    %h3= game.title
+    %p
+      %b Description:
+      = game.description
   .col-lg-8
     = raw video.embed_html5
     .panel.well
       Categories:
       - game.categories.each do |c|
         = link_to c.name, search_path(search: { category_id: c })
+
+- if Possession.avaliable(current_user, game, "WishlistItem")
+  = link_to 'Add to wishlist', dashboard_game_add_to_wishlist_path(game_id: game.id), method: :post, class: "btn btn-default", disabled: 'disabled'
+- else
+  = link_to 'Add to wishlist', dashboard_game_add_to_wishlist_path(game_id: game.id), method: :post, class: "btn btn-default"
+
+- if Possession.avaliable(current_user, game, "GameCollectionItem")
+  = link_to 'Add to collection', dashboard_game_add_to_collection_path(game_id: game.id), method: :post, class: "btn btn-default", disabled: 'disabled'
+- else
+  = link_to 'Add to collection', dashboard_game_add_to_collection_path(game_id: game.id), method: :post, class: "btn btn-default"
+
+%p#notice= notice
+%p#error= flash.now[:error]
 

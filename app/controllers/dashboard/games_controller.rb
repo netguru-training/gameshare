@@ -20,14 +20,14 @@ module Dashboard
     def create
       self.game = Game.new(game_params)
       if game.save
-        redirect_to :back
+        redirect_to dashboard_games_path, notice: 'Game was successfully created.'
       else
         render action: 'new'
       end
     end
 
     def update
-      if self.game.update(game_params)
+      if game.save
         redirect_to dashboard_games_path, notice: 'Game was successfully updated.'
       else
         render action: 'edit'
@@ -35,13 +35,36 @@ module Dashboard
     end
 
     def destroy
-      game.destroy
-      redirect_to :back, notice: 'Game was successfully deleted.'
+      if game.destroy
+        redirect_to :back, notice: 'Game was successfully deleted.'
+      else
+        redirect_to :back, error: 'Somethin went wrong.'
+      end
     end
 
-      private
-      def game_params
-        params.require(:game).permit(:title, :description, :disk_condition, :box_conditiond,category_ids: [])
+    def add_to_wishlist
+      add_game = WishlistItem.new(user: current_user, game: game)
+      if add_game.save
+        redirect_to dashboard_game_path(game), notice: 'Added to wishlist.'
+      else
+        redirect_to dashboard_game_path(game), flash: { error: 'Cannot add to wishlist.' }
       end
+    end
+
+    def add_to_collection
+      add_game = GameCollectionItem.new(user: current_user, game: game)
+      if add_game.save
+        redirect_to dashboard_game_path(game), notice: 'Added to collection.'
+      else
+        redirect_to dashboard_game_path(game), flash: { error: 'Cannot add to game collection.' }
+      end
+    end
+
+    private
+
+    def game_params
+      params.require(:game).permit(:title, :description, :disk_condition, :box_conditiond, category_ids: [])
+    end
   end
 end
+

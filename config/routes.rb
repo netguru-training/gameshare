@@ -2,11 +2,16 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   root to: "search#index"
-  resources :search
+  resources :search, only: [:show]
 
   namespace :dashboard do
-    resources :games
+    resources :games do
+      post :add_to_collection
+      post :add_to_wishlist
+    end
   end
+
+  resources :possessions, only: [:create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
