@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/netguru-training/gameshare.svg?branch=master)](https://travis-ci.org/netguru-training/gameshare)
 
 GamesShare is an application for gamers who want to trade their games with others.
+
 https://still-stream-7949.herokuapp.com/
 
 ## Setup
@@ -14,7 +15,7 @@ rake db:migrate
 rake db:seed
 ```
 
-# Omniauth
+### Omniauth
 
 Register your application with Facebook:
 
@@ -32,7 +33,7 @@ Declare the provider in your config/initializers/devise.rb:
 config.omniauth :facebook, "APP_ID", "APP_SECRET"
 ```
 
-# Youtube
+### Youtube
 Create a developer key here http://code.google.com/apis/youtube/dashboard.
 
 Add your key in config/youtube.yml:
