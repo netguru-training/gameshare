@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       post :add_to_collection
       post :add_to_wishlist
     end
+
+    get :wishlist
+    get :game_collection
   end
 
   resources :possessions, only: [:create]

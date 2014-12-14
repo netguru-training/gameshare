@@ -6,6 +6,8 @@
     %ul.nav.navbar-nav.nabar-left
       - if current_user
         %li= nav_link 'Games', dashboard_games_path
+        %li= nav_link 'Wishlist', dashboard_wishlist_path
+        %li= nav_link 'My games', dashboard_game_collection_path
     %ul.nav.navbar-nav.navbar-right
       - if current_user
         %li= link_to 'Profile', edit_user_registration_path
