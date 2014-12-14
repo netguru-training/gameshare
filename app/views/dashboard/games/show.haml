@@ -21,8 +21,3 @@
 
 %p#notice= notice
 %p#error= flash.now[:error]
-
-- if Possession.avaliable(current_user, game, "GameCollectionItem")
-  = link_to 'Add to collection', dashboard_game_add_to_collection_path(game_id: game.id), method: :post, class: "btn btn-default", disabled: 'disabled'
-- else
-  = link_to 'Add to collection', dashboard_game_add_to_collection_path(game_id: game.id), method: :post, class: "btn btn-default"
