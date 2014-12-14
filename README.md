@@ -1,6 +1,4 @@
-Badges
-[![Build Status](https://travis-ci.org/netguru-training/gameshare.svg?branch=master)](https://travis-ci.org/netguru-training/gameshare)
-===
+Badges [![Build Status](https://travis-ci.org/netguru-training/gameshare.svg?branch=master)](https://travis-ci.org/netguru-training/gameshare)
 
 GamesShare is an application for gamers who want to trade their games with others.
 
