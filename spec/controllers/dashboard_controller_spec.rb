@@ -19,14 +19,14 @@ describe DashboardController do
   end
 
   describe "GET wishlist" do
-    it "expose wished_games" do
+    it "exposes wished_games" do
       get :wishlist
       expect(controller.wished_games).to eq([])
     end
   end
 
   describe "GET game_collection" do
-    it "expose owned_games" do
+    it "exposes owned_games" do
       get :game_collection
       expect(controller.owned_games).to eq([])
     end
