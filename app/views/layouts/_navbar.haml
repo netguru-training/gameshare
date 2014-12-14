@@ -2,7 +2,7 @@
   .container
     / Brand and toggle get grouped for better mobile display
     .navbar-header
-      %a.navbar-brand{:href => "#"} Gameshare
+      = link_to 'Gameshare', root_path, class: 'navbar-brand'
     %ul.nav.navbar-nav.nabar-left
       - if current_user
         %li= nav_link 'Games', dashboard_games_path
