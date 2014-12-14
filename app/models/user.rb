@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :firstname, :lastname, :age, presence: true
 
   has_many :possessions
+  has_many :requests
   has_many :games, :through => :possessions
 
   def self.from_omniauth(auth)

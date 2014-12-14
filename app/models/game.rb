@@ -5,6 +5,7 @@ class Game < ActiveRecord::Base
   validates :title, :description, :disk_condition, :box_condition, presence: true
 
   has_many :possessions
+  has_many :requests
   has_many :users, through: :possessions
   has_and_belongs_to_many :categories
 

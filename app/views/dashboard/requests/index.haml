@@ -1,0 +1,27 @@
+%h3 Requests
+%table.table.table-hover
+  - requests_to.each do |request|
+    %tr
+      %td.col-md-2= request.giver.email
+      %td.col-md-6= link_to request.game.title
+      %td.col-md-5
+        - if request.accepted_at.present?
+          Accepted at: #{request.accepted_at}
+        - elsif request.rejected_at.present?
+          Rejected at: #{request.rejected_at}
+        - else
+          = link_to 'Accept', dashboard_request_accept_path(request.id), method: 'post'
+          = link_to 'Reject', dashboard_request_reject_path(request.id), method: 'post'
+
+%h3 My requests
+%table.table.table-hover
+  - requests_from.each do |request|
+    %tr
+      %td.col-md-2= request.receiver.email
+      %td.col-md-6= link_to request.game.title
+      %td.col-md-5
+        - if request.accepted_at.present?
+          Accepted at: #{request.accepted_at}
+        - elsif request.rejected_at.present?
+          Rejected at: #{request.rejected_at}
+

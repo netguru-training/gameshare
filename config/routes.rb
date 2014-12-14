@@ -15,6 +15,15 @@ Rails.application.routes.draw do
 
     get :wishlist
     get :game_collection
+
+    resources :trades do
+      post :send_request, on: :collection
+    end
+
+    resources :requests do
+      post :accept
+      post :reject
+    end
   end
 
   resources :possessions, only: [:create]

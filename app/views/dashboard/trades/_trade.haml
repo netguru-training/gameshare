@@ -1,0 +1,10 @@
+%table.table.table-hover
+  - trades.each do |trade|
+    %tr
+      %td.col-md-2= trade.user.email
+      %td.col-md-2= link_to trade.game.title.humanize, dashboard_game_path(trade.game)
+      %td.col-md-5= trade.game.description.truncate(50)
+      %td.col-md-1= trade.game.disk_condition.humanize
+      %td.col-md-1= trade.game.box_condition.humanize
+      %td.col-md-3= link_to 'Request', send_request_dashboard_trades_path(possession_id: trade.id),
+        method: 'post', class: 'btn btn-primary'

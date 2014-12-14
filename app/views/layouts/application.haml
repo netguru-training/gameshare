@@ -8,4 +8,9 @@
   %body
     = render 'layouts/navbar'
     .container
+      - unless notice.nil?
+        %div{id: 'notice', class: 'alert alert-success'}= notice
+      - unless flash[:error].nil?
+        %div{id: 'error', class: 'alert alert-danger'}= flash[:error]
+
       = yield
