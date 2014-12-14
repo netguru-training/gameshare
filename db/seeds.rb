@@ -1,11 +1,35 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+10.times do Category.create(
+  name: Faker::Lorem.word
+) end
 
-Game.create!([{title: 'Aaa', description: 'zzz'}, {title: 'Abb', description: 'zzz'}, {title: 'Ccc', description: 'zzz'}])
+30.times.each do
+  user = User.create(
+    firstname: Faker::Name.first_name,
+    lastname: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    age: rand(10..80),
+    password: '12345678',
+    password_confirmation: '12345678'
+  )
 
-Category.create!([{name: 'FPS'}, {name: 'RPG'}, {name: 'Sport'}])
+  game = Game.create(
+    title: Faker::Product.product_name,
+    description: Faker::Lorem.sentence,
+    disk_condition: ['poor', 'good','mint'].sample,
+    box_condition: ['brand_new', 'used'].sample
+  )
+
+  5.times.each do
+    category = Category.take
+
+    unless game.categories.include?(category)
+      game.categories << category
+    end
+  end
+
+  possession = Possession.create(
+    user_id: user.id,
+    game_id: game.id,
+    type: ['WishlistItem', 'GameCollectionItem'].sample
+  )
+end

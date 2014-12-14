@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :authorize_user
 
+  def current_user
+    UserDecorator.decorate(super) unless super.nil?
+  end
+
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
@@ -10,7 +14,6 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protect_from_forgery with: :exception
-
   expose(:search_query) { params[:search] }
 
   before_filter :configure_permitted_parameters, if: :devise_controller?

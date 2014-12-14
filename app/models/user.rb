@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:facebook]
 
+  validates :firstname, :lastname, :age, presence: true
+
   has_many :possessions
   has_many :games, :through => :possessions
 

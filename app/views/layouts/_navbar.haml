@@ -10,6 +10,9 @@
         %li= nav_link 'My games', dashboard_game_collection_path
     %ul.nav.navbar-nav.navbar-right
       - if current_user
+        %li.navbar-text
+          Hello,
+          = current_user.author
         %li= link_to 'Profile', edit_user_registration_path
         %li= link_to 'Logout', destroy_user_session_path, method: :delete
       - else

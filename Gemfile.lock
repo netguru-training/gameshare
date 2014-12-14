@@ -77,10 +77,9 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
-    faker (1.4.3)
-      i18n (~> 0.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    ffaker (1.25.0)
     ffi (1.9.6)
     formatador (0.2.5)
     guard (2.10.2)
@@ -291,7 +290,7 @@ DEPENDENCIES
   devise-async
   draper
   factory_girl_rails
-  faker
+  ffaker
   guard-bundler
   guard-rails
   guard-rspec

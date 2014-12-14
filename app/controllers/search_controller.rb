@@ -13,7 +13,7 @@ class SearchController < ApplicationController
   private
 
   def fetch_games
-    search  = GameSearch.new(search_query || {})
+    search = GameSearch.new(search_query || {})
     search.results
   end
 end

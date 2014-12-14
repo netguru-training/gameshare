@@ -50,7 +50,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'faker'
+  gem 'ffaker'
   gem 'simplecov', '~> 0.7.1', require: false
   gem 'launchy'
   gem 'factory_girl_rails'
