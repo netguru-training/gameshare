@@ -1,6 +1,6 @@
 class GamePolicy < ApplicationPolicy
   def add_to_wishlist?
-    not has_in_collection?
+    not has_in_collection? and not has_in_wishlist?
   end
 
   def add_to_collection?

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe GamePolicy do
-  let!(:test_user) {
+  let!(:user) {
     User.create(
       email: 'some@email.com',
       password: 'some password',
@@ -10,24 +10,47 @@ describe GamePolicy do
       age: 18
     )
   }
-  let!(:test_game) {
+  let!(:game) {
     Game.create(
       title: 'game title',
       description: 'game description'
     )
   }
-  let!(:policy) { GamePolicy.new(test_user, test_game) }
+  let!(:policy) { GamePolicy.new(user, game) }
 
-  describe "#add_to_collection?" do
-    context "when user has game in collection" do
-      let!(:possession) {GameCollectionItem.create!(user: test_user, game: test_game)}
+  context "when user has game in collection" do
+    let!(:possession) { GameCollectionItem.create!(user: user, game: game) }
 
-      it { expect(policy.add_to_collection?).to be_falsey }
-      it { expect(GameCollectionItem.avaliable(test_user, test_game)).to be_truthy }
-    end
+    it { expect(policy.add_to_collection?).to be_falsey }
+    it { expect(policy.add_to_wishlist?).to be_falsey }
 
-    context "when user hasn't game in collection" do
-      it { expect(policy.add_to_collection?).to be_truthy }
-    end
+    it { expect(policy.remove_from_collection?).to be_truthy }
+    it { expect(policy.remove_from_wishlist?).to be_falsey }
+  end
+
+  context "when user hasn't game in collection" do
+    it { expect(policy.add_to_collection?).to be_truthy }
+    it { expect(policy.add_to_wishlist?).to be_truthy }
+
+    it { expect(policy.remove_from_collection?).to be_falsey }
+    it { expect(policy.remove_from_wishlist?).to be_falsey }
+  end
+
+  context "when user has game in wishlist" do
+    let!(:possession) {WishlistItem.create!(user: user, game: game)}
+
+    it { expect(policy.add_to_collection?).to be_truthy }
+    it { expect(policy.add_to_wishlist?).to be_falsey }
+
+    it { expect(policy.remove_from_collection?).to be_falsey }
+    it { expect(policy.remove_from_wishlist?).to be_truthy }
+  end
+
+  context "whe user hasn't game in wishlist" do
+    it { expect(policy.add_to_collection?).to be_truthy }
+    it { expect(policy.add_to_wishlist?).to be_truthy }
+
+    it { expect(policy.remove_from_collection?).to be_falsey }
+    it { expect(policy.remove_from_wishlist?).to be_falsey }
   end
 end
