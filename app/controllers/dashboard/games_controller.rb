@@ -1,5 +1,7 @@
 module Dashboard
   class GamesController < ApplicationController
+    before_action :authorize
+
     expose(:game)
     expose(:categories)
     expose(:games)

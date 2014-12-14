@@ -35,6 +35,7 @@ gem 'binding_of_caller'
 gem 'pry-rails'
 gem 'youtube_it'
 gem 'ostruct2'
+gem 'pundit'
 
 group :development do
   gem 'guard-rails'
