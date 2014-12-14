@@ -3,9 +3,7 @@ module Dashboard
     expose(:game)
     expose(:categories)
     expose(:games)
-    expose(:youtube_session) { YouTubeIt::Client.new(dev_key: YouTubeITConfig.dev_key)}
-    expose(:yt_search_result) { youtube_session.videos_by(query: "#{game.title} game trailer", page: 1, per_page: 1)}
-    expose(:video) { yt_search_result.videos.first }
+    expose(:video) { Youtube.new(game.title).first_video }
 
     def index
     end
