@@ -1,6 +1,7 @@
-Badges [![Build Status](https://travis-ci.org/netguru-training/gameshare.svg?branch=master)](https://travis-ci.org/netguru-training/gameshare)
+[![Build Status](https://travis-ci.org/netguru-training/gameshare.svg?branch=master)](https://travis-ci.org/netguru-training/gameshare)
 
 GamesShare is an application for gamers who want to trade their games with others.
+(https://still-stream-7949.herokuapp.com/)
 
 ## Setup
 
@@ -17,10 +18,10 @@ rake db:seed
 
 Register your application with Facebook:
 
-* Log in to your facebook account, go to (https://developers.facebook.com/)
+* Log in to your facebook account, go to https://developers.facebook.com/
 * Click on Apps, Add a new app. There will be a pop up, select website as a platform.
 * Name your application, create new Facebook app ID. Select category(keep everything else as it is) and create App ID.
-* Scroll down and Enter site URL as (http://localhost:3000/) which is your default local rails server. Scroll down and click on Skip to Developer Dashboard in Next steps section.
+* Scroll down and Enter site URL as http://localhost:3000/ which is your default local rails server. Scroll down and click on Skip to Developer Dashboard in Next steps section.
 * Go to Settings and enter your email address in Contact Email. Save changes.
 * Go to status and Review, toggle “Do you want to make this app and all its live features available to the general public?” to yes.
 * The whole purpose of step 1 was to get App ID & App secret and to activate the application so we can make calls from our web application.
@@ -32,7 +33,7 @@ config.omniauth :facebook, "APP_ID", "APP_SECRET"
 ```
 
 # Youtube
-Create a developer key here (http://code.google.com/apis/youtube/dashboard).
+Create a developer key here http://code.google.com/apis/youtube/dashboard.
 
 Add your key in config/youtube.yml:
 ```
@@ -43,6 +44,11 @@ dev_key: 'API_KEY'
 * Ruby 2.1.5
 * Rails 4.1.8
 * PostgreSQL
+
+## Team
+[@vircung](https://github.com/vircung)
+[@igatto](https://github.com/igatto)
+[@JBanas](https://github.com/JBanas)
 
 ## Licence
 
