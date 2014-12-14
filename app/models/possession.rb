@@ -5,7 +5,7 @@ class Possession < ActiveRecord::Base
   scope :wishlist_items, -> { where type: 'WishlistItem' }
   scope :game_collection_items, -> { where type: 'GameCollectionItem' }
 
-  def self.avaliable(user,game,type)
+  def self.avaliable(user,game,type=self)
     Possession.exists?(user: user, game: game, type: type)
   end
 end
