@@ -1,3 +1,5 @@
 = simple_form_for :search, url: search_path(:show), method: :get do |f|
   = f.input :title, input_html: { value: search_query.try(:[], :title) }, label: false
+  = f.input :disk_condition, as: :check_boxes, collection: generate_collection_int(:disk_conditions)
+  = f.input :box_condition, as: :check_boxes, collection: generate_collection_int(:box_conditions)
   = f.submit 'Search'
