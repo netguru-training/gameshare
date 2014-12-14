@@ -4,7 +4,7 @@ class GamePolicy < ApplicationPolicy
   end
 
   def add_to_collection?
-    not has_in_wishlist?
+    not has_in_collection?
   end
 
   def remove_from_collection?
